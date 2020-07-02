@@ -1,0 +1,33 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#" routerLink="/">
+        {{ title }}
+      </a>
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="#"class="" routerLink="/jobs">offres</a>
+        </li>
+        <li>
+          <a href="#"class="" routerLink="/jobs/add">créer une offre</a>
+        </li>
+        <li>
+          <a href="#"class="" routerLink="/about">à propos</a>
+        </li>
+        <li *ngIf="!authService.userIsLoggedIn()">
+          <a href="#" class="" routerLink="/login">se connecter</a>
+        </li>
+        <li *ngIf="authService.userIsLoggedIn()">
+          <a href="#" class="" routerLink="/profile">mon profil</a>
+        </li>         
+        <li *ngIf="authService.userIsLoggedIn()">
+          <a href="#" class="" (click)="authService.logOut()">se déconnecter</a>
+        </li>        
+        <li *ngIf="!authService.userIsLoggedIn()">
+          <a href="#" class="" routerLink="/register">créer un compte</a>
+        </li>        
+      </ul>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>
